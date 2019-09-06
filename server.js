@@ -24,13 +24,15 @@ var server = http.createServer(function(request, response){
         console.log('有人来访问/了')
         response.statusCode = 200
         response.setHeader('Content-Type','text/html;charset=utf-8')
-        response.write(`hello\n`)
+        response.write(`
+        <link rel="stylesheet" href="./style.css">
+        <h1>你好</h1>\n`)
         response.end()
-    }else if(path === '/x'){
+    }else if(path === '/style.css'){
         console.log('有人来访问/x了')
         response.statusCode = 200
         response.setHeader('Content-Type','text/css;charset=utf-8')
-        response.write(`body{background:red;}\n`)
+        response.write(`h1{color:red;}\n`)
         response.end()
     }else{
         response.statusCode = 404
